@@ -1,0 +1,13 @@
+.container {
+  background: var(--gray-600);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+.wrapper {
+  width: 46rem;
+  max-width: 46rem;
+  display: flex;
+  justify-content: center;
+}
