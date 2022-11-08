@@ -1,0 +1,7 @@
+.tasks {
+  margin-top: 4rem;
+}
+.tasksInfo {
+  display: flex;
+  justify-content: space-between;
+}

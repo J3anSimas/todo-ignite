@@ -1,0 +1,19 @@
+.tasksList {
+  border-top: 1px solid var(--gray-400);
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+.noTasks {
+  height: 15.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  gap: 16px;
+  color: var(--gray-300);
+}
+
+.noTasks p:first-child {
+  font-weight: bold;
+}
