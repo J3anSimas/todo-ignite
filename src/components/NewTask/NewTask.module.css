@@ -16,7 +16,7 @@
   padding-left: 1rem;
 }
 
-button {
+.newTask button {
   width: 5.625rem;
   background: var(--blue-dark);
   color: var(--gray-100);

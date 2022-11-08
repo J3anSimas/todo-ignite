@@ -1,9 +1,10 @@
 import { ClipboardText } from 'phosphor-react'
 import { useState } from 'react'
+import Task from '../Task/Task.component'
 
 import styles from './TasksList.module.css'
 export default function TasksList(): JSX.Element {
-  const [tasks, setTasks] = useState<number[]>([])
+  const [tasks, setTasks] = useState<number[]>([1, 2, 3])
   return (
     <div className={styles.tasksList}>
       {tasks.length === 0 ? (
@@ -14,7 +15,9 @@ export default function TasksList(): JSX.Element {
             <p>Crie tarefas e organize seus itens a fazer</p>
           </span>
         </div>
-      ) : null}
+      ) : (
+        tasks.map((task) => <Task key={task.toString()} />)
+      )}
     </div>
   )
 }
