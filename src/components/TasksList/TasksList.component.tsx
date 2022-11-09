@@ -1,10 +1,20 @@
 import { ClipboardText } from 'phosphor-react'
 import { useState } from 'react'
+import { TaskInterface } from '../../App'
 import Task from '../Task/Task.component'
 
 import styles from './TasksList.module.css'
-export default function TasksList(): JSX.Element {
-  const [tasks, setTasks] = useState<number[]>([1, 2, 3])
+
+interface TasksListProps {
+  tasks: TaskInterface[]
+  onCheckAsDone: (id: string) => void
+  onRemoveTask: (id: string) => void
+}
+export default function TasksList({
+  tasks,
+  onCheckAsDone,
+  onRemoveTask
+}: TasksListProps): JSX.Element {
   return (
     <div className={styles.tasksList}>
       {tasks.length === 0 ? (
@@ -16,7 +26,16 @@ export default function TasksList(): JSX.Element {
           </span>
         </div>
       ) : (
-        tasks.map((task) => <Task key={task.toString()} />)
+        tasks.map(({ id, text, done }) => (
+          <Task
+            key={id}
+            id={id}
+            text={text}
+            done={done}
+            onCheckAsDone={onCheckAsDone}
+            onRemoveTask={onRemoveTask}
+          />
+        ))
       )}
     </div>
   )

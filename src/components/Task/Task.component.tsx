@@ -1,15 +1,42 @@
-import { Trash } from 'phosphor-react'
+import { Circle, Trash } from 'phosphor-react'
 import styles from './Task.module.css'
+import CheckedTask from '../../assets/checkTask.svg'
 
-export default function Task(): JSX.Element {
+interface TaskProps {
+  id: string
+  text: string
+  done: boolean
+  onCheckAsDone: (id: string) => void
+  onRemoveTask: (id: string) => void
+}
+export default function Task({
+  id,
+  text,
+  done,
+  onCheckAsDone,
+  onRemoveTask
+}: TaskProps): JSX.Element {
+  function handleCheckTask(): void {
+    onCheckAsDone(id)
+  }
+  function handleRemoveTask(): void {
+    onRemoveTask(id)
+  }
   return (
     <div className={styles.task}>
-      <input type="checkbox" name="" id="" />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo,
-        laudantium eveniet excepturi a illum repellendus recusandae ad eaque
-      </p>
-      <button title="Excluir">
+      <button className={styles.checkButton} onClick={handleCheckTask}>
+        {done ? (
+          <img src={CheckedTask} className={styles.checkDone} />
+        ) : (
+          <Circle size={24} className={styles.checkNotDone} />
+        )}
+      </button>
+      <p>{text}</p>
+      <button
+        title="Excluir"
+        className={styles.removeButton}
+        onClick={handleRemoveTask}
+      >
         <Trash size={24} />
       </button>
     </div>

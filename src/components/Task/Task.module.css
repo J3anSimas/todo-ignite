@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap: 0.75rem;
+  gap: 1rem;
   height: 4.5rem;
   background: var(--gray-500);
   padding: 0px 1rem;
@@ -15,7 +15,8 @@
 }
 
 .task p {
-  color: var(--gray-100)
+  color: var(--gray-100);
+  flex: 1;
 }
 .task button {
   display: flex;
@@ -28,6 +29,15 @@
   cursor: pointer;
 }
 
-.task button svg {
+.task .removeButton svg {
   color: var(--gray-300)
+}
+
+.task .checkNotDone {
+  color: var(--blue)
+}
+
+.task .checkDone {
+  width: 1.5rem;
+  height: 1.5rem;
 }
